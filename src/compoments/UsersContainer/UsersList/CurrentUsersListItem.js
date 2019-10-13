@@ -1,33 +1,41 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 import { Location } from 'styled-icons/evil/Location'
 import { Email } from 'styled-icons/material/Email'
 
-class CurrentUsersListItem extends Component {
+class CurrentUsersListItem extends PureComponent {
 
     render() {
-        const { item } = this.props;
+        const {
+            avatar_url,
+            login,
+            html_url,
+            name,
+            bio,
+            location,
+            email
+        } = this.props.item;
 
         return (
             <Item>
                 <WrapperRow>
                     <WrapperAvatar>
-                        <Avatar src={item.avatar_url} alt="avatar"/>
+                        <Avatar src={avatar_url} alt="avatar"/>
                     </WrapperAvatar>
                     <WrapperCol>
                         <WrapperRow>
-                            <TextNickname href={item.html_url} target="_blank">{item.login}</TextNickname>
-                            <TextFullname>{item.name}</TextFullname>
+                            <TextNickname href={html_url} target="_blank">{login}</TextNickname>
+                            <TextFullname>{name}</TextFullname>
                         </WrapperRow>
-                        <span>{item.bio}</span>
+                        <span>{bio}</span>
                         <WrapperRow>
                             <GrayLocation />
-                            <TextBottom>{item.location}</TextBottom>
-                            {item.email &&
+                            <TextBottom>{location}</TextBottom>
+                            {email &&
                                 <div>
                                     <GrayEmail />
-                                    <TextBottom>{item.email}</TextBottom>
+                                    <TextBottom>{email}</TextBottom>
                                 </div>
                             }
                         </WrapperRow>

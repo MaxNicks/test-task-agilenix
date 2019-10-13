@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import LoadUserButton from './LoadUserButton/LoadUserButton'
 import UserList from './UsersList/UsersList'
 import { getDateIsError, getDateIsLoaded, getUsersDate } from '../../selectors/common';
-import { userFetchRequested } from "../../store/actions/users.actions";
+import { userFetchRequested } from '../../store/actions/users.actions';
 
 class UsersContainer extends PureComponent {
     render() {
